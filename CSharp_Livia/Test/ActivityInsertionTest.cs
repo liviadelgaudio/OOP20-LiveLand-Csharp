@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using CSharp_Livia;
 
 namespace Test
@@ -14,7 +15,7 @@ namespace Test
         private ViewActivityImpl act4 = new ViewActivityBuilder("pizza pazza", ActType.ActivityType.REST).MinPrice(10).MaxPrice(25).Build();
         private ViewActivityImpl act5 = new ViewActivityBuilder("souvenirs", ActType.ActivityType.SHOP).MinPrice(1).MaxPrice(15).Build();
 
-[TestMethod]
+        [TestMethod]
         public void TestActivityCreation()
 
         {
@@ -23,5 +24,40 @@ namespace Test
             Assert.AreEqual(this.act3.GetActivityType(),
                     this.act4.GetActivityType());
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ActivityAlreadyPresentException))]
+        public void TestActivityInsertion()
+        {
+            try
+            {
+                this.controller.AddNewActivity(this.act1);
+            }
+            catch (ActivityAlreadyPresentException exc)
+            {
+                Console.WriteLine(exc.GetMessage());
+            }
+            Assert.IsTrue(this.controller.GetActivityList().Contains(this.act1));
+            try
+            {
+                this.controller.AddNewActivity(this.act3);
+            }
+            catch (ActivityAlreadyPresentException exc)
+            {
+                Console.WriteLine(exc.GetMessage());
+            }
+            Assert.IsTrue(this.controller.GetActivityList().Contains(act3));
+            this.controller.AddNewActivity(act3);
+            Assert.Fail();
+            Assert.AreNotEqual(this.controller.GetActivityList().Count, 3);
+        }
+
+        [TestMethod]
+        public void TestReset()
+        {
+            this.controller.ResetActivityLists();
+            Assert.IsTrue(this.controller.GetActivityList().Count == 0);
+        }
     }
+
 }
