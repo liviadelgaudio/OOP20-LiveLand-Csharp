@@ -2,16 +2,15 @@ using System;
 
 namespace CSharp_Livia
 {
-    class ViewActivityImpl : ViewActivity
+    public class ViewActivityImpl : ViewActivity
     {
         private string name;
-        private Optional<int> capacity;
-        private Optional<int> minPrice;
-        private Optional<int> maxPrice;
-        private enum ActivityType{FAIR, BABYFAIR, REST, SHOP};
-        private ActivityType activityType;
+        private Nullable<int> capacity;
+        private Nullable<int> minPrice;
+        private Nullable<int> maxPrice;
+        private ActType.ActivityType activityType;
 
-        public ViewActivityImpl(string name, Optional<int> capacity, Optional<int> minPrice, Optional<int> maxPrice, ActivityType type)
+        public ViewActivityImpl(string name, Nullable<int> capacity, Nullable<int> minPrice, Nullable<int> maxPrice, ActType.ActivityType type)
         {
             this.name = name;
             this.capacity = capacity;
@@ -20,22 +19,22 @@ namespace CSharp_Livia
             this.activityType = type;
         }
 
-        public Optional<int> GetCapacity()
+        public Nullable<int> GetCapacity()
         {
             return this.capacity;
         }
 
-        public Optional<int> GetMinPrice()
+        public Nullable<int> GetMinPrice()
         {
             return this.minPrice;
         }
 
-        public Optional<int> GetMaxPrice()
+        public Nullable<int> GetMaxPrice()
         {
             return this.maxPrice;
         }
 
-        public ActivityType GetActivityType()
+        public ActType.ActivityType GetActivityType()
         {
             return this.activityType;
         }

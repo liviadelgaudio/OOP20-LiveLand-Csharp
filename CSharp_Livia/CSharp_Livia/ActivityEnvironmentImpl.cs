@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CSharp_Livia
 {
@@ -7,13 +8,13 @@ namespace CSharp_Livia
         private List<ViewActivityImpl> activityList;
         private List<ViewActivityImpl> fairList;
         private List<ViewActivityImpl> profitList;
-        private ActivityType actType;
+        private ActType.ActivityType actType;
 
        public ActivityEnvironmentImpl()
        {
-           this.fairList = new ArrayList();
-           this.profitList = new ArrayList();
-           this.activityList = new ArrayList();
+           this.fairList = new List<ViewActivityImpl>();
+           this.profitList = new List<ViewActivityImpl>();
+           this.activityList = new List<ViewActivityImpl>();
        }
 
         public void ActivityInsertion(ViewActivityImpl activity)
@@ -26,25 +27,25 @@ namespace CSharp_Livia
                     throw new ActivityAlreadyPresentException();
                 }
             }
-            this.activityList.add(newActivity);
+            this.activityList.Add(newActivity);
             this.actType = activity.GetActivityType();
 
             switch (actType)
             {
-                case BABYFAIR:
-                    this.fairList.add(newActivity);
+                case ActType.ActivityType.BABYFAIR:
+                    this.fairList.Add(newActivity);
                     break;
                 
-                case FAIR:
-                    this.fairList.add(newActivity);
+                case ActType.ActivityType.FAIR:
+                    this.fairList.Add(newActivity);
                     break;
 
-                case SHOP:
-                    this.profitList.add(newActivity);
+                case ActType.ActivityType.SHOP:
+                    this.profitList.Add(newActivity);
                     break;
 
-                case REST:
-                    this.profitList.add(newActivity);
+                case ActType.ActivityType.REST:
+                    this.profitList.Add(newActivity);
                     break;
 
                 default:
@@ -54,9 +55,9 @@ namespace CSharp_Livia
 
         public void ResetActivity()
         {
-            this.profitList.clear();
-            this.fairList.clear();
-            this.activityList.clear();
+            this.profitList.Clear();
+            this.fairList.Clear();
+            this.activityList.Clear();
         }
 
         public List<ViewActivityImpl> GetActivityList()
@@ -64,12 +65,12 @@ namespace CSharp_Livia
             return this.activityList;
         }
         
-        List<ViewActivityImpl> GetFairList()
+        public List<ViewActivityImpl> GetFairList()
         {
             return this.fairList;
         }
 
-        List<ViewActivityImpl> GetProfitList()
+        public List<ViewActivityImpl> GetProfitList()
         {
             return this.profitList;
         }

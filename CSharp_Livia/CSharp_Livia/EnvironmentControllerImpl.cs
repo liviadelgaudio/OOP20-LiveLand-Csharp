@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CSharp_Livia
 {
@@ -12,8 +13,8 @@ namespace CSharp_Livia
         }
         public void AddNewActivity(ViewActivityImpl activity)
         {
-            ViewActivityImpl activity = activity;
-            this.model.ActivityInsertion(activity);
+            ViewActivityImpl newActivity = activity;
+            this.model.ActivityInsertion(newActivity);
         }
 
         public List<ViewActivityImpl> GetActivityList()
@@ -33,7 +34,7 @@ namespace CSharp_Livia
 
         public void ResetActivityLists()
         {
-            this.model.ResetActivityLists();
+            model.ResetActivity();
         }
     }
 }

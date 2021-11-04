@@ -5,28 +5,28 @@ namespace CSharp_Livia
     class ViewActivityBuilder
     {
         private string name;
-        private Optional<int> capacity = Optional.Empty;
-        private Optional<int> minPrice = Optional.Empty;
-        private Optional<int> maxPrice = Optional.Empty;
-        private ActivityType activityType;
+        private Nullable<int> capacity = null;
+        private Nullable<int> minPrice = null;
+        private Nullable<int> maxPrice = null;
+        private ActType.ActivityType activityType;
 
-        public ViewActivityBuilder(string name, ActivityType type)
+        public ViewActivityBuilder(string name, ActType.ActivityType type)
         {
             this.name = name;
-            this.type = type;
+            this.activityType = type;
         }
 
-        public ViewActivityBuilder Capacity(int capacity = null)
+        public void Capacity(int capacity)
         {
             this.capacity = capacity;
         }
 
-        public ViewActivityBuilder MinPrice(int minPrice = null)
+        public void MinPrice(int minPrice)
         {
             this.minPrice = minPrice;
         }
 
-        public ViewActivityBuilder MaxPrice(int maxPrice = null)
+        public void MaxPrice(int maxPrice)
         {
             this.maxPrice = maxPrice;
         }
