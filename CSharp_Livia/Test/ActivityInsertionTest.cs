@@ -4,6 +4,9 @@ using CSharp_Livia;
 
 namespace Test
 {
+    /// <summary>
+    /// This class tests the activity creation, insertion and reset
+    /// </summary>
     [TestClass]
     public class ActivityInsertionTest
     {

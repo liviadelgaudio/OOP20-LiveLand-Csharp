@@ -19,26 +19,31 @@ namespace CSharp_Livia
             this.activityType = type;
         }
 
+        /// <inheritdoc/>
         public Nullable<int> GetCapacity()
         {
             return this.capacity;
         }
 
+        /// <inheritdoc/>
         public Nullable<int> GetMinPrice()
         {
             return this.minPrice;
         }
 
+        /// <inheritdoc/>
         public Nullable<int> GetMaxPrice()
         {
             return this.maxPrice;
         }
 
+        /// <inheritdoc/>
         public ActType.ActivityType GetActivityType()
         {
             return this.activityType;
         }
 
+        /// <inheritdoc/>
         public string GetName()
         {
             return this.name;

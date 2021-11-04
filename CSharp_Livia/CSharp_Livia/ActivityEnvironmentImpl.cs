@@ -17,6 +17,7 @@ namespace CSharp_Livia
            this.activityList = new List<ViewActivityImpl>();
        }
 
+        /// <inheritdoc/>
         public void ActivityInsertion(ViewActivityImpl activity)
         {
             ViewActivityImpl newActivity = activity;
@@ -53,6 +54,7 @@ namespace CSharp_Livia
             }
         }
 
+        /// <inheritdoc/>
         public void ResetActivity()
         {
             this.profitList.Clear();
@@ -60,16 +62,19 @@ namespace CSharp_Livia
             this.activityList.Clear();
         }
 
+        /// <inheritdoc/>
         public List<ViewActivityImpl> GetActivityList()
         {
             return this.activityList;
         }
-        
+
+        /// <inheritdoc/>
         public List<ViewActivityImpl> GetFairList()
         {
             return this.fairList;
         }
 
+        /// <inheritdoc/>
         public List<ViewActivityImpl> GetProfitList()
         {
             return this.profitList;
