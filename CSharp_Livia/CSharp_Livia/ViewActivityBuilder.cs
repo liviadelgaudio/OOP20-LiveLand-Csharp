@@ -2,7 +2,7 @@ using System;
 
 namespace CSharp_Livia
 {
-    class ViewActivityBuilder
+    public class ViewActivityBuilder
     {
         private string name;
         private Nullable<int> capacity = null;
@@ -16,19 +16,22 @@ namespace CSharp_Livia
             this.activityType = type;
         }
 
-        public void Capacity(int capacity)
+        public ViewActivityBuilder Capacity(int capacity)
         {
             this.capacity = capacity;
+            return this;
         }
 
-        public void MinPrice(int minPrice)
+        public ViewActivityBuilder MinPrice(int minPrice)
         {
             this.minPrice = minPrice;
+            return this;
         }
 
-        public void MaxPrice(int maxPrice)
+        public ViewActivityBuilder MaxPrice(int maxPrice)
         {
             this.maxPrice = maxPrice;
+            return this;
         }
 
         public ViewActivityImpl Build()

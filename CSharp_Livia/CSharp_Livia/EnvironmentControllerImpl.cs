@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CSharp_Livia
 {
-    class EnvironmentControllerImpl : EnvironmentController
+    public class EnvironmentControllerImpl : EnvironmentController
     {
         private ActivityEnvironmentImpl model;
 
