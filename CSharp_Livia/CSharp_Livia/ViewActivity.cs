@@ -4,14 +4,14 @@ namespace CSharp_Livia
 {
     public interface ViewActivity
     {
-       ActivityType getActivityType();
+       ActivityType GetActivityType();
 
-        Optional<int> getCapacity();
+        Optional<int> GetCapacity();
 
-        Optional<int> getMinPrice();
+        Optional<int> GetMinPrice();
 
-        Optional<int> getMaxPrice();
+        Optional<int> GetMaxPrice();
 
-        String getName();
+        string GetName();
     }
 }
