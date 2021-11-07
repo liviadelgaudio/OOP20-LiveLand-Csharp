@@ -1,12 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 namespace CSharp_Ines
 {
     public class EnvironmentImpl : Environment
     {
-        private const IList<PersonTicket> personList = new IList<PersonTicket>();
-        
-        private const EntranceImpl entrance = new EntranceImpl();
+        private List<PersonTicket> personList = new List<PersonTicket>();
+
+        private EntranceImpl entrance = new EntranceImpl();
+
+        List<PersonTicket> Environment.PersonList => throw new NotImplementedException();
 
         public void peopleEntrance(PersonTicket person)
         {
@@ -16,22 +19,36 @@ namespace CSharp_Ines
 
         public void exitPeople()
         {
-            personList.Remove(0);
+            personList.RemoveAt(1);
         }
 
-        public IList<PersonTicket> getPersonList()
+        public List<PersonTicket> getPersonList()
         {
             return personList;
         }
 
-        public IList<int> getEntranceProfit()
+        public List<int> getEntranceProfit()
         {
-            IList<int> profit = new IList<int>();
+            List<int> profit = new List<int>();
             profit.Add(this.entrance.getAdultProfit());
             profit.Add(this.entrance.getReducedProfit());
             profit.Add(this.entrance.getPassProfit());
             profit.Add(this.entrance.getNumTickets());
             return profit;
+        }
+        public EntranceImpl getEntrance()
+        {
+            return entrance;
+        }
+
+        IList<PersonTicket> Environment.getPersonList()
+        {
+            throw new NotImplementedException();
+        }
+
+        IList<int> Environment.getEntranceProfit()
+        {
+            throw new NotImplementedException();
         }
     }
 }

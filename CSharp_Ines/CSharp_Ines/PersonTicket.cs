@@ -3,11 +3,13 @@ namespace CSharp_Ines
 {
     public class PersonTicket
     {
-       private static const int AGE_MIN = 2;
-       private static const int AGE_MAX = 95;
-       private static const int AGE_MAX_REDUCED = 65;
-       private static const int AGE_MIN_REDUCED = 12;
+       private const int AGE_MIN = 2;
+       private const int AGE_MAX = 95;
+       private const int AGE_MAX_REDUCED = 65;
+       private const int AGE_MIN_REDUCED = 12;
+        private int ticket;
        private int age;
+  
 
         private enum Ticket{SEASON_PASS, ADULT, REDUCED};
 
@@ -31,25 +33,25 @@ namespace CSharp_Ines
         }
 
         ///<returns> returns the ticket of the person </returns>
-        public Enum getTicket()
+        public int GetTicket()
         {
-            return ticket;
+           return ticket;
         }
 
         ///<returns> returns random ticket of the person </returns>
-        public string randTicket()
+        public int randTicket()
         {
-            const var rand = new Random();
+            var rand = new Random();
             int randomTicket = rand.Next(4);
             if (randomTicket == 3)
             {
-                return Ticket.SEASON_PASS;
-            } else if (this.getAge() < AGE_MIN_REDUCED || this.getAge() > AGE_MAX_REDUCED1)
+                return (int)Ticket.SEASON_PASS;
+            } else if (this.getAge() < AGE_MIN_REDUCED || this.getAge() > AGE_MAX_REDUCED)
             {
-               return Ticket.REDUCED; 
+               return (int)Ticket.REDUCED; 
             } else
             {
-                return Ticket.ADULT;
+                return (int)Ticket.ADULT;
             }
         }
 

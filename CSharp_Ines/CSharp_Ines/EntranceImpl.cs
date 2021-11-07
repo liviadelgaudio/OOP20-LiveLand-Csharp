@@ -16,17 +16,17 @@ namespace CSharp_Ines
        ///<param name="person"> personTicket </param>
        public void addPerson(PersonTicket person)
        {
-           switch (person.getTicket())
-           {
-            case Ticket.ADULT:
+            switch (person.GetTicket())
+            {
+            case 1:
                 adultProfit = adultProfit + 20;
                 profit = profit + 20;
                 break;
-            case Ticket.REDUCED:
+            case 2:
                 reducedProfit = reducedProfit + 15;
                 profit = profit + 15;
                 break;
-            case Ticket.SEASON_PASS:
+            case 0:
                 passProfit = passProfit + 35;
                 profit = profit + 35;
                 break;
